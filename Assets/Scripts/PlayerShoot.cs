@@ -4,20 +4,22 @@ using UnityEngine.Networking;
 [RequireComponent(typeof(WeaponManager))]
 public class PlayerShoot : NetworkBehaviour
 {
-    private const string PLAYER_TAG = "Player";
+    private const string PLAYER_TAG = "Player"; 
 
     [SerializeField]
     private Camera cam;
 
     [SerializeField]
     private LayerMask mask;
+    
+    [SerializeField]
+    private GameObject bulletSoundGameObject;
 
     private PlayerWeapon currentWeapon;
     private WeaponManager weaponManager;
-    public GameObject gunObject;
 
     void Start()
-    {
+    { 
         if (cam == null)
         {
             Debug.LogError("PlayerShoot: No camera referenced!");
@@ -34,25 +36,24 @@ public class PlayerShoot : NetworkBehaviour
         if (PauseMenu.IsOn)
             return;
 
-        if (currentWeapon.fireRate <= 0f)
+        if (currentWeapon.fireRate <=0f)
         {
             if (Input.GetButtonDown("Fire1"))
             {
                 Shoot();
             }
-        }
-        else
+        } else
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                InvokeRepeating("Shoot", 0f, 1f / currentWeapon.fireRate);
-            }
-            else if (Input.GetButtonUp("Fire1"))
+                InvokeRepeating("Shoot", 0f, 1f/currentWeapon.fireRate);
+            } else if (Input.GetButtonUp("Fire1"))
             {
+
                 CancelInvoke("Shoot");
             }
         }
-
+        
     }
 
     //called on the server when the player shoots
@@ -71,7 +72,7 @@ public class PlayerShoot : NetworkBehaviour
 
     //called on the server when we hit something
     [Command]
-    void CmdOnHit(Vector3 _pos, Vector3 _normal)
+    void CmdOnHit (Vector3 _pos, Vector3 _normal)
     {
         RpcDoHitEffects(_pos, _normal);
     }
@@ -89,12 +90,13 @@ public class PlayerShoot : NetworkBehaviour
     {
         if (!isLocalPlayer)
             return;
-
+        
         //call the onshoot method on the server
         CmdOnShoot();
 
-                GameObject gunObj = Instantiate(gunObject);
-                Destroy(gunObj, 1f);
+        GameObject gunObj = Instantiate(bulletSoundGameObject);
+        Destroy(gunObj, 1f);
+        
         RaycastHit _hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, currentWeapon.range, mask))
         {
@@ -105,6 +107,7 @@ public class PlayerShoot : NetworkBehaviour
 
             CmdOnHit(_hit.point, _hit.normal); //we hit something, call the onHit command on the server
         }
+
     }
 
     [Command]

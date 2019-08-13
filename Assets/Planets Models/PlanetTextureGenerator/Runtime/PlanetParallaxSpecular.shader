@@ -106,7 +106,7 @@ Shader "HeyBlairGames/PTG/Planet Parallax Specular"
 					//specular
 					float3 h			= normalize( IN.lightDir.xyz + IN.eyeDir );
 
-					float specularlight	= pow( max( dot( n, h ), 0 ), _Shininess ) * specAlpha;
+					float specularlight	= pow( max( dot( n, h ), 0 ), _Shininess ) * specAlpha * 2;
 					float3 spec			= _SpecularColour.rgb * specularlight * _SpecularColour.a;
 
 					colour				+= spec;
@@ -126,8 +126,8 @@ Shader "HeyBlairGames/PTG/Planet Parallax Specular"
 
 
 					//blue shift
-					half invDiff		= 1 - saturate( 10 * diff );
-					colour.b			= saturate( colour.b + invDiff * 0.02 );
+					half invDiff		= 1 - saturate( 5 * diff );
+					colour.b			= saturate( colour.b + invDiff * 0.05 );
 					
 
 					//city lights

@@ -54,10 +54,8 @@ public class WeaponManager : NetworkBehaviour {
     void EquipWeapon (PlayerWeapon _weapon)
     {
         currentWeapon = _weapon;
-
-        GameObject _weaponIns = Instantiate(_weapon.graphics, weaponHolder.position, weaponHolder.rotation);
         
-        //_weaponIns.transform.Rotate(5 * Time.deltaTime, 5 * Time.deltaTime, 0);
+        GameObject _weaponIns = (GameObject)Instantiate(_weapon.graphics, weaponHolder.position, weaponHolder.rotation);
         _weaponIns.transform.SetParent(weaponHolder);
         currentGraphics = _weaponIns.GetComponent<WeaponGraphics>();
         if (currentGraphics == null)
@@ -67,7 +65,5 @@ public class WeaponManager : NetworkBehaviour {
         {//sets the layers of every child of the weapon object
             Util.SetLayerRecursively(_weaponIns, LayerMask.NameToLayer(weaponLayerName));
         }
-
-        Destroy(_weaponIns);
     }
 }
