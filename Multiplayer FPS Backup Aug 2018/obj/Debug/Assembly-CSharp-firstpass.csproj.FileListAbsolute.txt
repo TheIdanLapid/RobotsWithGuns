@@ -1,0 +1,2 @@
+D:\Unity\MFPS0818\Multiplayer FPS\obj\Debug\Assembly-CSharp-firstpass.csprojAssemblyReference.cache
+D:\Unity\MFPS0818\Multiplayer FPS\obj\Debug\Assembly-CSharp-firstpass.csproj.CoreCompileInputs.cache

@@ -8,6 +8,18 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Database Control Free" t="Include">
+          <e p="Resources" t="Include">
+            <e p="DCF_RuntimeData.txt" t="Include" />
+          </e>
+        </e>
+        <e p="Planets Models" t="Include">
+          <e p="PlanetTextureGenerator" t="Include">
+            <e p="Runtime" t="Include">
+              <e p="PlanetParallaxSpecular.shader" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="SampleScenes" t="Include">
           <e p="Menu" t="Include">
             <e p="Scripts" t="Include">
@@ -28,11 +40,29 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="CameraFacingBillboard.cs" t="Include" />
           <e p="HostGame.cs" t="Include" />
           <e p="JoinGame.cs" t="Include" />
+          <e p="MatchSettings.cs" t="Include" />
+          <e p="Orbit2.cs" t="Include" />
+          <e p="PauseMenu.cs" t="Include" />
+          <e p="PlayerMotor.cs" t="Include" />
+          <e p="PlayerScoreboardItem.cs" t="Include" />
           <e p="PlayerSetup.cs" t="Include" />
           <e p="PlayerShoot.cs" t="Include" />
+          <e p="PlayerStats.cs" t="Include" />
+          <e p="PlayerWeapon.cs" t="Include" />
+          <e p="PlayerWeapon2.cs" t="Include" />
+          <e p="RoomListItem.cs" t="Include" />
+          <e p="UserAccountManager.cs" t="Include" />
+          <e p="Util.cs" t="Include" />
+          <e p="WeaponGraphics.cs" t="Include" />
           <e p="WeaponManager.cs" t="Include" />
+        </e>
+        <e p="SimpleTouchController" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="InfoTouches.cs" t="Include" />
+          </e>
         </e>
         <e p="Standard Assets" t="Include">
           <e p="2D" t="Include">

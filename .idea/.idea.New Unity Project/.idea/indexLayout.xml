@@ -18,9 +18,11 @@
     <explicitExcludes>
       <Path>.git</Path>
       <Path>.idea</Path>
+      <Path>.vscode</Path>
       <Path>Builds</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
+      <Path>Multiplayer FPS Backup Aug 2018</Path>
       <Path>Temp</Path>
       <Path>UIElementsSchema</Path>
       <Path>obj</Path>
